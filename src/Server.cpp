@@ -1,14 +1,19 @@
-#include "../headers/Server.hpp"
+#include "../include/Server.hpp"
 
-int webs::initServer(int domain,int type,int port,int s_add)
+webs::WebServer::WebServer(int d,int t,int port,int s_add)
 {
-    int sfd=socket(domain,type,0);
-    test_connection(sfd,"Socket Connection Failed");
-
-    sockaddr_in address;
-    address.sin_family=domain;
+    domain=d;
+    type=t;
+    address.sin_family=d;
     address.sin_port=htons(port);
     address.sin_addr.s_addr=s_add;
+}
+
+int webs::WebServer::initServer()
+{
+    int sfd=socket(domain,type,0),opt=1;
+    test_connection(sfd,"Socket Connection Failed");
+    test_connection(setsockopt(sfd,SOL_SOCKET,SO_REUSEADDR|SO_REUSEPORT,&opt,sizeof(opt)),"setting socket options Failed");
 
     test_connection(bind(sfd,(sockaddr *)&address,sizeof(address)),"Bind Failed");
 
@@ -16,7 +21,7 @@ int webs::initServer(int domain,int type,int port,int s_add)
     return sfd;
 }
 
-void webs::test_connection(int to_test,const char * str)
+void webs::WebServer::test_connection(int to_test,const char * str)
 {
     if(to_test<0)
     {
