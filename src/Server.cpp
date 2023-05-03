@@ -6,7 +6,7 @@ webs::WebServer::WebServer(int d,int t,int port,int s_add)
     type=t;
     address.sin_family=d;
     address.sin_port=htons(port);
-    address.sin_addr.s_addr=s_add;
+    address.sin_addr.s_addr=htonl(s_add);
 }
 
 int webs::WebServer::initServer()
