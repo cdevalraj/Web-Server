@@ -107,7 +107,7 @@ vector<char> read_image_file()
 
 void shut(int s)
 {
-    cout<<"\nShuting Down\n\n";
+    cout<<"\nShutting Down\n\n";
     close(new_soc);
     close(sfd);
     exit(EXIT_FAILURE);
