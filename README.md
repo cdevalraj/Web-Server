@@ -1,6 +1,6 @@
 # WEB-SERVER
 
-This is Web Server which can listen to the HTTP requests on the specified host and port no. and can also send HTTP responses on that same end-point.
+This is a Web Server which can listen to the HTTP requests on the specified host and port no. and can also send HTTP responses on that same end-point.
 
 ## TO RUN/START The Server
 To Run this code the code needs to be compiled and executed. So, by using the following commands you can start the server.
