@@ -1,8 +1,9 @@
 #ifndef FileHandling_hpp
 #define FileHandling_hpp
 
-#define APP_FILES "../app/"
-#define ASSETS "../app/ASSETS"
+#define APP_FILES "./app/"
+#define ASSETS "./app/assets/"
+#define ENTRY_POINT "index.html"
 
 #include <filesystem>
 #include <iostream>
@@ -16,14 +17,15 @@ namespace webs
 {
     class FileHandling
     {
-        std::vector<std::string> files;
+        std::vector<std::string> appfiles,assetfiles;
+        void ReadFiles();
+        std::string ReadFile(const std::string& file_path);
+        std::vector<char> ReadImage(const std::string& file_path);
         public:
-            std::unordered_map<string,string> fm;
-            std::unordered_map<string,std::vector<char>> im;
+            std::unordered_map<std::string,std::string> fm;
+            std::unordered_map<std::string,std::vector<char>> im;
             FileHandling();
-            void ReadFiles();
-            std::string ReadFile(const std::string& file_path);
-            std::vector<char> ReadImage(const std::string& file_path);
+            bool isImageFile(std::string file);
     };
 }
 
