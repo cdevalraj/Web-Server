@@ -11,7 +11,8 @@ $ ./a.exe [port no.]
 
 ## Note
 * Place your Requried html files in `./app/` app directory (in the root this Repo) in the same directory as this file
-* Also js, css, images, and others files inside assets folder i.e. `./app/assets`
+* Also js, css, images, and others files inside assets folder i.e. `./app/assets`\
+(For now this is not important, in future it will be)
 * This code only works in Linux systems.
 * This is still `UNDER DEVELOPMENT`
 
