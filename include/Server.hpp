@@ -4,12 +4,12 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 #include<iostream>
-#include "FileHandling.hpp"
+#include "Routing.hpp"
 #include "Response.hpp"
 
 namespace webs
 {
-    class WebServer: public FileHandling,public Response
+    class WebServer: public Routing,public Response
     {
         public:
             int domain,type;

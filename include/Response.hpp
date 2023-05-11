@@ -2,6 +2,7 @@
 #define Response_hpp
 
 #define GOOD_RESPONSE  "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nServer: MyServer\r\n"
+#define BAD_RESPONSE  "HTTP/1.1 404 OK\r\nConnection: keep-alive\r\nServer: MyServer\r\n\n"
 
 #define HTML_RESPONSE  GOOD_RESPONSE"Content-Type: text/html\r\n\n"
 

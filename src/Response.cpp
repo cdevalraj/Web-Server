@@ -12,7 +12,13 @@ webs::Response::Response()
 
 std::string webs::Response::generate_response(std::string file)
 {
-    int start=file.find_last_of('.')+1;
-    std::string extension=file.substr(start);
-    return Respnoses[extension];
+    if(file=="")
+        return HTML_RESPONSE;
+    int start=file.find_last_of('.');
+    if(start!=std::string::npos)
+    {
+        std::string extension=file.substr(start+1);
+        return Respnoses[extension];
+    }
+    return GOOD_RESPONSE;
 }

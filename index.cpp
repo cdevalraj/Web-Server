@@ -3,7 +3,6 @@
 #include<signal.h>
 #include<string.h>
 #include "./include/Server.hpp"
-#include "./include/FileHandling.hpp"
 #include <vector>
 #include <filesystem>
 #define PORT 3000
@@ -38,11 +37,45 @@ int main(int argc,char** argv)
         URL.assign(token,token+strlen(token));
         fs::path path_name = URL;
         string file=path_name.filename();
-        file=(file=="")?ENTRY_POINT:file;
-        string tmp=ws.generate_response(file);
-        tmp+=ws.fm[file];
-        const char* res=tmp.c_str();
-        send(new_soc,res,strlen(res),0);
+        string tmp;
+        if(ws.Route_files.find(URL)!=ws.Route_files.end())
+        {
+            tmp=ws.generate_response(file);
+            tmp+=ws.Route_files[URL];
+            const char* res=tmp.c_str();
+            send(new_soc,res,strlen(res),0);
+        }
+        else if(ws.Route_images.find(URL)!=ws.Route_images.end())
+        {
+            tmp=ws.generate_response(file);
+            vector<char> img=ws.Route_images[URL];
+            tmp+=ws.Route_files[URL];
+            const char* res=tmp.c_str();
+            send(new_soc,res,strlen(res),0);
+            send(new_soc,img.data(),img.size(),0);
+        }
+        else if(ws.RedirectURL.find(URL)!=ws.RedirectURL.end())
+        {
+            path_name=ws.RedirectURL[URL];
+            file=path_name.filename();
+            tmp=ws.generate_response(file);
+            tmp+=ws.Route_files[URL];
+            const char* res=tmp.c_str();
+            send(new_soc,res,strlen(res),0);
+        }
+        else if(ws.RedirectURL.find("/*")!=ws.RedirectURL.end())
+        {
+            tmp=HTML_RESPONSE;
+            tmp+=ws.Route_files["/"];
+            const char* res=tmp.c_str();
+            send(new_soc,res,strlen(res),0);
+        }
+        else
+        {
+            tmp=BAD_RESPONSE;
+            const char* res=tmp.c_str();
+            send(new_soc,res,strlen(res),0);
+        }
         close(new_soc);
     }
     return 0;
