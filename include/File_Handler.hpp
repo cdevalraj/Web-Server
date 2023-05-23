@@ -1,27 +1,24 @@
-#ifndef FileHandling_hpp
-#define FileHandling_hpp
+#ifndef File_Handler_hpp
+#define File_Handler_hpp
 
-#include <filesystem>
-#include <iostream>
 #include <vector>
 #include <fstream>
 #include <unordered_map>
-namespace fs = std::filesystem;
+#include <sstream>
 
 namespace webs
 {
-    class FileHandling
+    class File_Handler
     {
         public:
             // std::vector<std::string> projects;
             // std::unordered_map<std::string,std::vector<std::string>> projectfiles;
-            std::vector<std::string> files;
-            FileHandling();
+            // std::vector<std::string> files;
+            File_Handler();
             std::string ReadFile(const std::string& file_path);
             std::vector<char> ReadImage(const std::string& file_path);
             std::unordered_map<std::string, std::string> parseJsonFile(const std::string& filePath);
             bool isImageFile(std::string file);
-            bool isAssetFile(std::string file);
     };
 }
 

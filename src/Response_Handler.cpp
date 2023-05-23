@@ -1,6 +1,6 @@
-#include "../include/Response.hpp"
+#include "../include/Response_handler.hpp"
 
-webs::Response::Response()
+webs::Response_Handler::Response_Handler()
 {
     Respnoses["html"]=HTML_RESPONSE;
     Respnoses["js"]=JS_FILE_RESPONSE;
@@ -10,7 +10,7 @@ webs::Response::Response()
     Respnoses["gif"]=GIF_RESPONSE;
 }
 
-std::string webs::Response::generate_response(std::string file)
+std::string webs::Response_Handler::generate_response(std::string file)
 {
     if(file=="")
         return HTML_RESPONSE;

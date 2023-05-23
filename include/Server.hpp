@@ -3,13 +3,11 @@
 
 #include<sys/socket.h>
 #include<netinet/in.h>
-#include<iostream>
-#include "Routing.hpp"
-#include "Response.hpp"
+#include "Router.hpp"
 
 namespace webs
 {
-    class WebServer: public Routing,public Response
+    class WebServer: public Routing
     {
         public:
             int domain,type;
