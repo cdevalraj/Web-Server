@@ -1,4 +1,4 @@
-#include "../include/Response_handler.hpp"
+#include "../include/Response_Handler.hpp"
 
 webs::Response_Handler::Response_Handler()
 {
@@ -10,7 +10,7 @@ webs::Response_Handler::Response_Handler()
     Respnoses["gif"]=GIF_RESPONSE;
 }
 
-std::string webs::Response_Handler::generate_response(std::string file)
+std::string webs::Response_Handler::generate_response_headers(std::string file)
 {
     if(file=="")
         return HTML_RESPONSE;

@@ -1,10 +1,8 @@
 #ifndef File_Handler_hpp
 #define File_Handler_hpp
 
-#include <vector>
-#include <fstream>
-#include <unordered_map>
-#include <sstream>
+
+#include "Headers.hpp"
 
 namespace webs
 {

@@ -28,7 +28,7 @@ namespace webs
         std::unordered_map<std::string,std::string> Respnoses;
         public:
             Response_Handler();
-            std::string generate_response(std::string file);
+            std::string generate_response_headers(std::string file);
     };
 }
 

@@ -1,6 +1,6 @@
 #include "../include/Server.hpp"
 
-webs::WebServer::WebServer(int d,int t,int port,int s_add):Routing()
+webs::WebServer::WebServer(int d,int t,int port,int s_add):Router()
 {
     domain=d;
     type=t;

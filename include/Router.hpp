@@ -2,6 +2,7 @@
 #define Router_hpp
 
 #define ENTRY_POINT "index.html"
+#define APP "./app"
 #define REROUTE_CONFIG "./app/rconfig.json"
 
 #include "File_Handler.hpp"
@@ -18,7 +19,8 @@ namespace webs
             // std::unordered_map<std::string,std::string> Route_files;
             // std::unordered_map<std::string,std::vector<char>> Route_images;
             Router();
-            void Route(std::string &path);
+            void Route(int soc);
+            void Send(int soc,std::string &path,std::string &url);
     };
 }
 

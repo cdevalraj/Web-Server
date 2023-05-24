@@ -5,7 +5,7 @@ This is a Web Server which is built using socket programming in c++ under the ho
 ## TO RUN/START The Server
 To Run this code the code needs to be compiled and executed. So, by using the following commands you can start the server.
 ```
-g++ src/Routing.cpp src/FileHandling.cpp src/Response.cpp src/Server.cpp index.cpp -o a.exe
+g++ src/File_Handler.cpp src/Response_Handler.cpp src/Request_Handler.cpp src/Router.cpp src/Server.cpp index.cpp -o a.exe
 ```
 ```
 ./a.exe [port no.]

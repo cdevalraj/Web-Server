@@ -9,6 +9,7 @@ namespace webs
     {
         public:
             Request_Handler();
+            std::unordered_map<std::string,std::string> handleReq(int soc);
     };
 }
 

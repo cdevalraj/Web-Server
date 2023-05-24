@@ -1,13 +1,12 @@
 #ifndef Server_hpp
 #define Server_hpp
 
-#include<sys/socket.h>
 #include<netinet/in.h>
 #include "Router.hpp"
 
 namespace webs
 {
-    class WebServer: public Routing
+    class WebServer: public Router
     {
         public:
             int domain,type;

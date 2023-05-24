@@ -61,7 +61,7 @@ std::string webs::File_Handler::ReadFile(const std::string& file_path)
 {
     std::ifstream f(file_path, std::ios::in | std::ios::binary);
     if (!f) {
-        throw std::runtime_error("Failed to open file: "+file_path);
+        throw std::runtime_error("Failed to open file(ReadFile): "+file_path);
     }
     std::stringstream str;
     str<<f.rdbuf();
@@ -73,7 +73,7 @@ std::vector<char> webs::File_Handler::ReadImage(const std::string& file_path)
     std::ifstream file(file_path,std::ios::binary | std::ios::ate);
     if(!file)
     {
-        throw std::runtime_error("Failed to open file: "+file_path);
+        throw std::runtime_error("Failed to open file(Readimage): "+file_path);
     }
     long file_size=file.tellg();
     file.seekg(0,std::ios::beg);
